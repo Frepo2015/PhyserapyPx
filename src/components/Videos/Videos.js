@@ -26,7 +26,7 @@ export function Videos(props) {
 
           <h3>Videos: </h3>
       </div>
-      <Grid divided="vertically">
+      <Grid divided="stackable">
         <Grid.Row columns={2}>
           
 
