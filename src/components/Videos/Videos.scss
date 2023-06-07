@@ -1,23 +1,26 @@
 @import "~/src/scss/index";
 @import "~video-react/styles/scss/video-react";
 
-$video_width:80%;
+$video_width: 80%;
 $video_height: 500px;
 
-.home-page{
-    
-    &__banner{
-        height: 250px;
+
+
+.home-page {
+
+    &__banner {
+        height:250px;
         width: 100%;
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
-        margin-bottom: 35px ;
+        margin-bottom: 35px;
     }
 
-    &__data{
+    &__data {
         margin: 50px;
-        >h3{
+
+        >h3 {
             color: $font-grey;
             font-weight: 100;
             font-size: 22px;
@@ -26,27 +29,37 @@ $video_height: 500px;
             margin-bottom: 30px;
         }
     }
+
+    &__content {
+        width: 95%;
+        margin-left: 20px;
+
+
+    }
+
 }
 
-.video-react-video{
+.video-react-video {
     height: 100% !important;
     width: 100% !important;
 }
 
-.video-react-controls-enabled{
+.video-react-controls-enabled {
     height: $video_height !important;
     width: $video_width !important;
 }
 
-.ui.card{
-    margin: 30px 30px;
-    padding: 20px;
+.ui.card {
+    margin: 5% auto;
+
+    padding: 10px;
     display: flex;
     align-items: center;
     justify-self: center;
     width: 100%;
     background-color: $background-primary;
-    .header{
+
+    .header {
         color: $font-light;
         margin-bottom: 20px;
         display: flex;
@@ -54,21 +67,21 @@ $video_height: 500px;
         font-size: 20px;
     }
 
-    .content{
+    .content {
 
-        .meta{
+        .meta {
             color: $font-grey;
             font-size: 12px;
         }
-        
-        .header{
+
+        .header {
             color: $font-light;
             margin-bottom: 20px;
             display: flex;
             justify-content: ce;
         }
 
-        .description{
+        .description {
             color: $font-light;
             padding: 10px;
         }
