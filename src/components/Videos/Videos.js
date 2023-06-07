@@ -10,72 +10,67 @@ export function Videos(props) {
 
   const { data, paciente } = props
 
-  
-  
+
+
 
   return (
     <div className='home-page'>
-      <div 
-      className='home-page__banner' 
-      style={{backgroundImage: `url(${bannerHome})` }}>
+      <div
+        className='home-page__banner'
+        style={{ backgroundImage: `url(${bannerHome})` }}>
       </div>
 
       <div className='home-page__data'>
-          <h2>Bienvenido {paciente.nombre}</h2>
-          <p>Clave de expediente: <span> {paciente.id} </span></p>
+        <h2>Bienvenido {paciente.nombre}</h2>
+        <p>Clave de expediente: <span> {paciente.id} </span></p>
 
-          <h3>Videos: </h3>
+        <h3>Videos: </h3>
       </div>
-      <Grid divided="stackable">
-        <Grid.Row columns={2}>
-          
+      <div className='home-page__content'>
+        <Grid divided="stackable">
+          <Grid.Row columns={2}>
+            {map(data, (item) => {
+              const d = item.created_at.seconds
+              const date = convertDate(d);
+              return (
+                <Grid.Column key={item.id}>
 
-      
 
-      
-      {map(data, (item) => {
-        const d = item.created_at.seconds
-        const date = convertDate(d);
-        return (
-          <Grid.Column key={item.id}>
+                  <Card className='home-page__card'>
+                    <Card.Header>{item.title}</Card.Header>
+                    <Player playsInline src={item.file} fluid={false}><BigPlayButton position="center" /></Player>
+                    <Card.Content>
 
-          
-          <Card>
-          <Card.Header>{item.title}</Card.Header>
-           <Player playsInline src={item.file} fluid={false}><BigPlayButton position="center" /></Player>
-            <Card.Content>
-              
-              <Card.Meta>
-                <span className='date'>Asignado el dia: {date.toDateString()}</span>
-              </Card.Meta>
-              <Card.Description>
-                {item.description}
-              </Card.Description>
-            </Card.Content>
-            
-          </Card>
-          </Grid.Column>
+                      <Card.Meta>
+                        <span className='date'>Asignado el dia: {date.toDateString()}</span>
+                      </Card.Meta>
+                      <Card.Description>
+                        {item.description}
+                      </Card.Description>
+                    </Card.Content>
 
-        )
-      })}
-        </Grid.Row>
-      </Grid>
+                  </Card>
+                </Grid.Column>
+
+              )
+            })}
+          </Grid.Row>
+        </Grid>
+
+      </div>
+
 
 
     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
+  )
+}
+function convertDate(utcSeconds) {
+  let timestamp = utcSeconds * 1000
+  let d = new Date(timestamp);
+  return d
+}
 
 
 
